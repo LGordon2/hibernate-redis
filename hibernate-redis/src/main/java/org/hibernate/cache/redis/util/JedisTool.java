@@ -19,14 +19,15 @@ package org.hibernate.cache.redis.util;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.cache.redis.jedis.JedisClient;
 import org.hibernate.cfg.Environment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.Protocol;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 /**
@@ -35,12 +36,12 @@ import java.util.Properties;
  * @author 배성혁 sunghyouk.bae@gmail.com
  * @since 13. 5. 2. 오전 1:53
  */
-@Slf4j
 public final class JedisTool {
 
     public static final String EXPIRY_PROPERTY_PREFIX = "redis.expiryInSeconds.";
     private static final String FILE_URL_PREFIX = "file:";
     private static Properties cacheProperties = null;
+    private static final Logger log = LoggerFactory.getLogger(JedisTool.class);
 
     private JedisTool() { }
 
@@ -50,7 +51,7 @@ public final class JedisTool {
     public static JedisClient createJedisClient(Properties props) {
         log.info("create JedisClient.");
         Properties cacheProps = loadCacheProperties(props);
-        Integer expiryInSeconds = Integer.decode(cacheProps.getProperty("redis.expiryInSeconds", "120"));  // 120 seconds
+        Integer expiryInSeconds = Integer.valueOf(cacheProps.getProperty("redis.expiryInSeconds", "120"));  // 120 seconds
         cacheProperties = cacheProps;
 
         return new JedisClient(createJedisPool(cacheProps), expiryInSeconds);
@@ -62,10 +63,10 @@ public final class JedisTool {
     public static JedisPool createJedisPool(Properties props) {
 
         String host = props.getProperty("redis.host", "localhost");
-        Integer port = Integer.decode(props.getProperty("redis.port", String.valueOf(Protocol.DEFAULT_PORT)));
-        Integer timeout = Integer.decode(props.getProperty("redis.timeout", String.valueOf(Protocol.DEFAULT_TIMEOUT))); // msec
+        Integer port = Integer.valueOf(props.getProperty("redis.port", String.valueOf(Protocol.DEFAULT_PORT)));
+        Integer timeout = Integer.valueOf(props.getProperty("redis.timeout", String.valueOf(Protocol.DEFAULT_TIMEOUT))); // msec
         String password = props.getProperty("redis.password", null);
-        Integer database = Integer.decode(props.getProperty("redis.database", String.valueOf(Protocol.DEFAULT_DATABASE)));
+        Integer database = Integer.valueOf(props.getProperty("redis.database", String.valueOf(Protocol.DEFAULT_DATABASE)));
 
         log.info("create JedisPool. host=[{}], port=[{}], timeout=[{}], password=[{}], database=[{}]",
                  host, port, timeout, password, database);
@@ -96,7 +97,13 @@ public final class JedisTool {
                 // load from resources stream
                 is = JedisTool.class.getClassLoader().getResourceAsStream(cachePath);
             }
-            cacheProps.load(is);
+            
+            if(is == null){
+                log.info("Could not find hibernate-redis.properties.  Attempting to load properties from runtime.");
+                cacheProps = props;
+            } else {
+                cacheProps.load(is);
+            }
         } catch (Exception e) {
             log.warn("Fail to load cache properties. cachePath=" + cachePath, e);
         } finally {
@@ -104,6 +111,8 @@ public final class JedisTool {
                 try { is.close(); } catch (Exception ignored) { }
             }
         }
+
+
         return cacheProps;
     }
 
