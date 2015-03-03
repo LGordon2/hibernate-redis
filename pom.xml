@@ -36,19 +36,22 @@
 
     <distributionManagement>
         <repository>
-            <id>repo</id>
-            <url>http://dl.bintray.com/lgordon2/maven</url>
+            <id>bintray</id>
+            <url>https://api.bintray.com/maven/${bintray.repo}/${bintray.package}</url>
         </repository>
     </distributionManagement>
 
     <properties>
-        <jdk.version>1.6</jdk.version>
+        <jdk.version>1.8</jdk.version>
 
         <hibernate.version>4.3.5.Final</hibernate.version>
         <springframework.version>4.0.5.RELEASE</springframework.version>
         <querydsl.version>3.3.4</querydsl.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <bintray.repo>lgordon2/maven</bintray.repo>
+        <bintray.package>hibernate-redis</bintray.package>
     </properties>
 
     <dependencyManagement>
