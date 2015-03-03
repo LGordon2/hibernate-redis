@@ -1,4 +1,4 @@
-hibernate-redis  [![Build Status](https://travis-ci.org/lgordon2/hibernate-redis.png)](https://travis-ci.org/lgordon2/hibernate-redis)
+hibernate-redis  [![Build Status](https://travis-ci.org/LGordon2/hibernate-redis.svg?branch=master)](https://travis-ci.org/LGordon2/hibernate-redis)
 ===============
 
 [hibernate][1] (4.2.x.Final, 4.3.x.Final) 2nd level cache using redis server.
