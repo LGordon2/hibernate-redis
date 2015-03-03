@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.debop</groupId>
+    <groupId>com.github.lgordon2</groupId>
     <artifactId>hibernate-redis-parent</artifactId>
     <version>1.6.2-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <url>https://github.com/debop/hibernate-redis</url>
+    <url>https://github.com/lgordon2/hibernate-redis</url>
 
     <modules>
         <module>hibernate-redis</module>
@@ -25,19 +25,19 @@
 
     <issueManagement>
         <system>github</system>
-        <url>http://github.com/debop/hibernate-redis/issues</url>
+        <url>http://github.com/lgordon2/hibernate-redis/issues</url>
     </issueManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:debop/hibernate-redis.git</connection>
-        <url>scm:git:git@github.com:debop/hibernate-redis.git</url>
-        <developerConnection>scm:git:git@github.com:debop/hibernate-redis.git</developerConnection>
+        <connection>scm:git:git@github.com:lgordon2/hibernate-redis.git</connection>
+        <url>scm:git:git@github.com:lgordon2/hibernate-redis.git</url>
+        <developerConnection>scm:git:git@github.com:lgordon2/hibernate-redis.git</developerConnection>
     </scm>
 
     <distributionManagement>
         <repository>
             <id>repo</id>
-            <url>http://dl.bintray.com/debop/maven</url>
+            <url>http://dl.bintray.com/lgordon2/maven</url>
         </repository>
     </distributionManagement>
 
