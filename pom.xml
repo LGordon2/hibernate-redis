@@ -6,7 +6,7 @@
 
     <groupId>com.github.lgordon2</groupId>
     <artifactId>hibernate-redis-parent</artifactId>
-    <version>1.6.2-SNAPSHOT</version>
+    <version>1.6.2</version>
     <packaging>pom</packaging>
     <url>https://github.com/lgordon2/hibernate-redis</url>
 
