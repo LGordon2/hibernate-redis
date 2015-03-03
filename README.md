@@ -1,4 +1,4 @@
-hibernate-redis  [![Build Status](https://travis-ci.org/debop/hibernate-redis.png)](https://travis-ci.org/debop/hibernate-redis)
+hibernate-redis  [![Build Status](https://travis-ci.org/lgordon2/hibernate-redis.png)](https://travis-ci.org/lgordon2/hibernate-redis)
 ===============
 
 [hibernate][1] (4.2.x.Final, 4.3.x.Final) 2nd level cache using redis server.
@@ -21,7 +21,7 @@ add dependency
 
 ```xml
 <dependency>
-    <groupId>com.github.debop</groupId>
+    <groupId>com.github.lgordon2</groupId>
     <artifactId>hibernate-redis</artifactId>
     <version>1.6.1</version>
 </dependency>
@@ -32,8 +32,8 @@ add repository
 ```xml
 <repositories>
     <repository>
-        <id>debop-releases-bintray</id>
-        <url>http://dl.bintray.com/debop/maven</url>
+        <id>lgordon2-releases-bintray</id>
+        <url>http://dl.bintray.com/lgordon2/maven</url>
     </repository>
 </repositories>
 ```
@@ -127,9 +127,9 @@ read [HibernateCacheTest.java][3] for more usage.
 
 [1]: http://www.hibernate.org/
 [2]: https://github.com/xetorthio/jedis
-[3]: https://github.com/debop/hibernate-redis/blob/master/hibernate-redis/src/test/java/org/hibernate/test/cache/HibernateCacheTest.java
+[3]: https://github.com/lgordon2/hibernate-redis/blob/master/hibernate-redis/src/test/java/org/hibernate/test/cache/HibernateCacheTest.java
 [4]: http://projects.spring.io/spring-data-jpa/
 [lombok]: http://www.projectlombok.org/
 [fst]: https://github.com/RuedigerMoeller/fast-serialization
 [snappy]: https://github.com/xerial/snappy-java
-[benchmark]: https://github.com/debop/hibernate-redis/blob/master/hibernate-redis/src/test/java/org/hibernate/test/serializer/SerializerTest.java
+[benchmark]: https://github.com/lgordon2/hibernate-redis/blob/master/hibernate-redis/src/test/java/org/hibernate/test/serializer/SerializerTest.java

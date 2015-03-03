@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.debop</groupId>
+    <groupId>com.github.lgordon2</groupId>
     <artifactId>hibernate-redis-parent</artifactId>
     <version>1.6.1</version>
     <packaging>pom</packaging>
-    <url>https://github.com/debop/hibernate-redis</url>
+    <url>https://github.com/lgordon2/hibernate-redis</url>
 
     <modules>
         <module>hibernate-redis</module>
@@ -23,19 +23,22 @@
         </license>
     </licenses>
 
+    <issueManagement>
+        <system>github</system>
+        <url>http://github.com/lgordon2/hibernate-redis/issues</url>
+    </issueManagement>
+
     <scm>
-        <url>https://github.com/debop/hibernate-redis</url>
+        <connection>scm:git:git@github.com:lgordon2/hibernate-redis.git</connection>
+        <url>scm:git:git@github.com:lgordon2/hibernate-redis.git</url>
+        <developerConnection>scm:git:git@github.com:lgordon2/hibernate-redis.git</developerConnection>
     </scm>
 
     <distributionManagement>
         <repository>
             <id>repo</id>
-            <url>https://github.com/debop/debop-maven-repo/raw/master/releases</url>
+            <url>http://dl.bintray.com/lgordon2/maven</url>
         </repository>
-        <snapshotRepository>
-            <id>repo-snapshot</id>
-            <url>https://github.com/debop/debop-maven-repo/raw/master/snapshots</url>
-        </snapshotRepository>
     </distributionManagement>
 
     <properties>
